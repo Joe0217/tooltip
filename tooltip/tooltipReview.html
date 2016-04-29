@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no, minimal-ui"/>
+<link href="tooltip-1.1.css" rel="stylesheet" type="text/css">
+<body>
+
+<input id="alert" type="button" value="alert">
+<input id="confirm" type="button" value="confirm">
+<input id="custom" type="button" value="custom">
+<input id="textList" type="button" value="text list">
+<input id="textAreas" type="button" value="text areas">
+<input id="prompt" type="button" value="prompt">
+
+<script src="../js/Common/jquery/jquery-2.1.1.min.js"></script>
+<script src="tooltip-1.1.js"></script>
+<script>
+
+//    如果没有callback,可以不传
+    $('#alert').bind('click',function(){
+        tooltip.showAlert('this is a alert','',tooltipCallback);
+    });
+    $('#confirm').bind('click',function(){
+        tooltip.showConfirm('this is a confirm','confirm','cancel',tooltipCallback);
+    });
+    $('#custom').bind('click',function(){
+        tooltip.showCustom('2.pic.jpg',tooltipCallback);
+    });
+    $('#textList').bind('click',function(){
+        var arr = {'aaa':'aaa','bbb':'bbb','ccc':'ccc'};
+        tooltip.showTextList(arr,function(clickId){console.log(clickId)});
+    });
+    $('#textAreas').bind('click',function(){
+        tooltip.showTextAreas('tooltipTitle','tooltipPlaceholder',100,'tooltipConfirm','tooltipCancel',function(button,textVal){if(button){console.log('confirm'+textVal);}else{console.log('cancel');}});
+    });
+    $('#prompt').bind('click',function(){
+        tooltip.showPrompt('this is a prompt');
+    });
+
+    function tooltipCallback(button){
+        if (button){
+            console.log('confirm');
+        }else{
+            console.log('cancel');
+        }
+    }
+</script>
+</body>
+</html>

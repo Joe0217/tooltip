@@ -1,0 +1,203 @@
+/** tooltip style **/
+ul,li{list-style: none;padding: 0;margin: 0;}
+input,textarea{resize:none;outline: none;}
+.tooltipTransition{
+    -webkit-transition: ease 0.25s;
+    -moz-transition: ease 0.25s;
+    -ms-transition: ease 0.25s;
+    -o-transition: ease 0.25s;
+    transition: ease 0.25s;
+}
+.tooltipOpacityAnimation{
+    -webkit-animation:tooltipOpacityAnimation 0.2s;
+    -o-animation:tooltipOpacityAnimation 0.2s;
+    animation: tooltipOpacityAnimation 0.2s;
+}
+@keyframes tooltipOpacityAnimation
+{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-moz-keyframes tooltipOpacityAnimation
+{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-webkit-keyframes tooltipOpacityAnimation
+{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-o-keyframes tooltipOpacityAnimation
+{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#tooltipModel{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+    -webkit-animation:tooltipOpacityAnimation 0.1s;
+    -o-animation:tooltipOpacityAnimation 0.1s;
+    animation: tooltipOpacityAnimation 0.1s;
+    -webkit-transition: ease 0.2s;
+    -moz-transition: ease 0.2s;
+    -ms-transition: ease 0.2s;
+    -o-transition: ease 0.2s;
+    transition: ease 0.2s;
+}
+#tooltipCoating{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-background: rgba(0, 0, 0, 0.40);
+    -moz-background: rgba(0, 0, 0, 0.40);
+    background: rgba(0, 0, 0, 0.40);
+}
+#tooltipContent{
+    width: 75%;
+    background: #ffffff;
+    position: absolute;
+    z-index: 1;
+    top: 30%;
+    left: 12.5%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /*overflow: hidden;*/
+    float: left;
+}
+.tooltipTitle{
+    margin: 0 0 11px 0;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    top: 0;
+    color: #1c1c1c;
+    text-align: center;
+    font-size: 16px;
+    text-align: center;
+    font-weight: normal;
+    overflow: hidden;
+    float: left;
+}
+#tooltipText{
+    width: 90%;
+    min-height: 30px;
+    margin: 16px 5%;
+    text-align: center;
+    color: #282828;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: normal;
+    float: left;
+}
+#tooltipButtonBar{
+    width: 100%;
+    height: 27.5%;
+    border-top: 1px solid #e4e4e4;
+    float: left;
+    position: relative;
+}
+#tooltipButtonBar li{
+    width: 46%;
+    padding: 0 2%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #3391e8;
+    letter-spacing: 1px;
+    font-size: 17px;
+    float: left;
+    -webkit-transition: ease 0.1s;
+    -moz-transition: ease 0.1s;
+    -ms-transition: ease 0.1s;
+    -o-transition: ease 0.1s;
+    transition: ease 0.1s;
+    overflow: hidden;
+}
+#tooltipButtonBar .tooltipOneButton{width: 100%;padding: 0;}
+/*#tooltipButtonBar li:first-child{font-weight: bold;}*/
+#tooltipButtonBar .touchBtn{background: #3391e8;color: #FFFFFF;}
+#tooltipButtonBar .tooltipCenterLine{padding: 0;width: 1px;background: #e4e4e4;position: absolute;left: 50%;bottom: 0;}
+
+/*custom style*/
+.tooltipCustomCon{
+    width: 86%;
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    left: 7%;
+}
+.tooltipCustomCon .tooltipCustomImg{max-width: 100%;}
+.tooltipRightCloseButton{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    z-index: 999;
+}
+
+/*list text style*/
+#tooltipTextList li{
+    width: 100%;
+    text-align: center;
+    padding: 11px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+#tooltipTextList li:last-child{border: none;}
+#tooltipTextList li p{
+    line-height: 16px;
+    font-size: 13px;
+    color: #808080;
+    text-align: center;
+}
+
+/*text areas style*/
+.tooltipTextAreas{
+    margin: 0 5% 11px 5%;
+    padding: 0;
+    width: 90%;
+    min-height: 22px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 14px;
+    border: none;
+    color: #4D4D4D;
+    border-bottom: 1px solid #3391e8;
+}
+
+/*prompt style*/
+#tooltipPromptBox {
+    width: 100%;
+    position: fixed;
+    bottom: 30%;
+    left: 0;
+    z-index: 99999;
+    opacity: 1;
+    text-align: center;
+    -webkit-transition: ease 0.35s;
+    -moz-transition: ease 0.35s;
+    -ms-transition: ease 0.35s;
+    -o-transition: ease 0.35s;
+    transition: ease 0.35s;
+}
+.tooltipPrompt {
+    width: auto;
+    max-width: 82%;
+    float: left;
+    padding: 1.5% 4%;
+    font-size: 13px;
+    color: #ffffff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.9);
+    margin: 0 auto;
+    position: absolute;
+}
