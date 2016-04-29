@@ -105,6 +105,9 @@ function showTooltip(tooltipCon,callback){
     $('*').blur();
     var tooltipModel = '<div id="tooltipModel" class="tooltipTransition tooltipOpacityAnimation"><div id="tooltipCoating"></div><div id="tooltipContent">'+tooltipCon+'</div></div>';
     $('body').append(tooltipModel);
+    if(screen.width >= 500){
+        $('#tooltipContent').css('left',''+(screen.width-320)/2+'px');
+    }
     bindFunction(callback);
 }
 

@@ -15,7 +15,7 @@
 <input id="textAreas" type="button" value="text areas">
 <input id="prompt" type="button" value="prompt">
 
-<script src="jquery-2.1.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="tooltip-1.1.js"></script>
 <script>
 //    如果没有callback,可以不传
@@ -26,7 +26,7 @@
         tooltip.showConfirm('this is a confirm','confirm','cancel',tooltipCallback);
     });
     $('#custom').bind('click',function(){
-        tooltip.showCustom('2.pic.jpg',tooltipCallback);
+        tooltip.showCustom('tooltip-custom.jpg',tooltipCallback);
     });
     $('#textList').bind('click',function(){
         var arr = {'aaa':'aaa','bbb':'bbb','ccc':'ccc'};
