@@ -3,16 +3,17 @@
  */
 var tooltip = {
     showAlert:function(tooltipCon,tooltipConfirm,callback){
-        var tooltipCon = '<p id="tooltipText">'+tooltipCon+'</p><ul id="tooltipButtonBar"><li class="tooltipOneButton tooltipButton" id="tooltipConfirm">'+checkButtonNull(tooltipConfirm)+'</li></ul>';
+        var tooltipCon = '<p id="tooltipText">'+tooltipCon+'</p><ul id="tooltipButtonBar"><li class="tooltipOneButton tooltipButton" id="tooltipConfirm">'+checkConfirmNull(tooltipConfirm)+'</li></ul>';
         showTooltip(tooltipCon,callback);
     },
     showConfirm:function(tooltipCon,tooltipConfirm,tooltipCancel,callback){
-        var tooltipCon = '<div id="tooltipText">'+tooltipCon+'</div><ul id="tooltipButtonBar"><li class="tooltipButton" id="tooltipCancel">'+checkButtonNull(tooltipCancel)+'</li><li class="tooltipCenterLine"></li><li class="tooltipButton" id="tooltipConfirm">'+checkButtonNull(tooltipConfirm)+'</li></ul>';
+        var tooltipCon = '<div id="tooltipText">'+tooltipCon+'</div><ul id="tooltipButtonBar"><li class="tooltipButton" id="tooltipCancel">'+checkCancelNull(tooltipCancel)+'</li><li class="tooltipCenterLine"></li><li class="tooltipButton" id="tooltipConfirm">'+checkConfirmNull(tooltipConfirm)+'</li></ul>';
         showTooltip(tooltipCon,callback);
     },
     showCustom:function(backgroundImg,callback){
         var tooltipCon = '<div class="tooltipCustomCon" id="tooltipConfirm"><img class="tooltipCustomImg" src="'+backgroundImg+'"><div id="tooltipCancel" class="tooltipRightCloseButton"></div></div>';
         showTooltip(tooltipCon,callback);
+        $('#tooltipContent').css('overflow','visible');
     },
     showTextList:function(textArray,callback){
         var textContent = '';
@@ -30,9 +31,15 @@ var tooltip = {
             closeTooltip();
             callback($(this).attr('id'));
         });
+        $('#tooltipTextList li').bind('touchstart',function(){
+            $(this).addClass('touchList');
+        });
+        $('#tooltipTextList li').bind('touchend',function(){
+            $(this).removeClass('touchList');
+        });
     },
     showTextAreas:function(tooltipTitle,tooltipPlaceholder,tooltipTextMaxLength,tooltipConfirm,tooltipCancel,callback){
-        var tooltipCon = '<p class="tooltipTitle">'+tooltipTitle+'</p><textarea class="tooltipTextAreas tooltipTransition" id="tooltipTextAreas" placeholder='+tooltipPlaceholder+' maxlength='+tooltipTextMaxLength+'></textarea><ul id="tooltipButtonBar"><li class="tooltipButton" id="tooltipCancel">'+checkButtonNull(tooltipCancel)+'</li><li class="tooltipCenterLine"></li><li class="tooltipButton" id="tooltipTextAreasConfirm">'+checkButtonNull(tooltipConfirm)+'</li></ul>';
+        var tooltipCon = '<p class="tooltipTitle">'+tooltipTitle+'</p><textarea class="tooltipTextAreas tooltipTransition" id="tooltipTextAreas" placeholder='+tooltipPlaceholder+' maxlength='+tooltipTextMaxLength+'></textarea><ul id="tooltipButtonBar"><li class="tooltipButton" id="tooltipCancel">'+checkCancelNull(tooltipCancel)+'</li><li class="tooltipCenterLine"></li><li class="tooltipButton" id="tooltipTextAreasConfirm">'+checkConfirmNull(tooltipConfirm)+'</li></ul>';
         showTooltip(tooltipCon,callback);
         $('#tooltipContent').addClass('tooltipTransition');
 
@@ -74,12 +81,19 @@ var tooltip = {
     }
 };
 
-function checkButtonNull(tooltipConfirm,tooltipCancel){
+function checkConfirmNull(tooltipConfirm){
     if (tooltipConfirm == null || tooltipConfirm == ''){
         return '确定';
     }else {
         return tooltipConfirm;
     }
+    if (tooltipCancel == null || tooltipCancel == ''){
+        return '取消';
+    }else {
+        return tooltipCancel;
+    }
+}
+function checkCancelNull(tooltipCancel){
     if (tooltipCancel == null || tooltipCancel == ''){
         return '取消';
     }else {
