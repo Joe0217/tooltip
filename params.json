@@ -1,0 +1,6 @@
+{
+  "name": "Tooltip",
+  "tagline": "几种常用的提示框",
+  "body": "## 几种常用的提示框\r\n\r\n### 1.tooltip alert\r\n![](https://github.com/Joe0217/blog-image/blob/master/tooltip-image/tooltip-alert.png)\r\n\r\n### 2.tooltip confirm\r\n![](https://github.com/Joe0217/blog-image/blob/master/tooltip-image/tooltip-confirm.png)\r\n\r\n### 3.tooltip custom\r\n![](https://github.com/Joe0217/blog-image/blob/master/tooltip-image/tooltip-custom.png)\r\n\r\n### 4.tooltip list\r\n![](https://github.com/Joe0217/blog-image/blob/master/tooltip-image/tooltip-list.png)\r\n\r\n### 5.tooltip textArea\r\n![](https://github.com/Joe0217/blog-image/blob/master/tooltip-image/tooltip-textArea.png)\r\n\r\n### 6.tooltip prompt\r\n![](https://github.com/Joe0217/blog-image/blob/master/tooltip-image/tooltip-prompt.png)",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
